@@ -102,8 +102,8 @@ Needs option '--zfs'.
 The build script proceeds in two stages, first stage builds the zfs packages, second stage builds the iso image.
 Archuseriso also provides a utility `aui-build_zfs_packages` for only building the ZFS packages.
 
-Installation on a usb drive
----------------------------
+Installation on usb drive
+-------------------------
 Hard disk like installation except systemd journal configured in volatile mode.
 
 Command synopsis:
@@ -120,3 +120,17 @@ usb drive partitions:
     Partition   Type      Usage    Size
     #1          EFI FAT   Boot     512 MiB
     #2          Ext4      System   Free disk space 
+
+Testing
+-------
+Testing the iso image in a qemu virtual machine:
+
+    aui-run -i aui-xfce-linux_5_10_7-0116-x64.iso
+
+Using uefi:
+
+    aui-run --uefi -i aui-xfce-linux_5_10_7-0116-x64.iso
+
+Testing usb drive /dev/sdc using uefi:
+
+    sudo aui-run --uefi -d /dev/sdc
